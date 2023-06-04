@@ -57,18 +57,18 @@ export default {
         <section class="col-12">
           <h2 class="text-secondary fw-bold">
             hey!
-            <input type="text" style="border: none; outline: none;" placeholder="Your name :)" v-model="name" />
+            <input type="text" class="inputt" style="border: none; outline: none;" placeholder="Your name :)" v-model="name" />
           </h2>
         </section>
 
-        <section class="col-5 text-center">
-          <h3>Let's make a ToDo!</h3>
+        <section class="col-12 col-md-5 text-center">
+          <h3 class="">Let's make a ToDo!</h3>
           <form @submit.prevent="addTodo">
             <h4 class="fw-light">writte someting!</h4>
             <div class="mb-3">
               <input
                 type="text"
-                class="form-control"
+                class="form-control "
                 v-model="input_content"
                 placeholder="e.g. do your tech test for Ludik ;)"
               />
