@@ -51,7 +51,7 @@ export default {
 </script>
 
 <template>
-  <main class="app mt-5">
+  <main class="app m-5 ">
     <section class="container shadow pb-5 bg-white rounded">
       <div class="row justify-content-center">
         <section class="col-12">
@@ -73,18 +73,18 @@ export default {
                 placeholder="e.g. do your tech test for Ludik ;)"
               />
             </div>
-            <div>
-              <h4>Job or home?</h4>
+            <div class="">
+              <h4 class="col-12">Job or home?</h4>
               <label>
-                <div class="form-check m-3  rounded  text-danger">
-                  <input class="form-check-input" type="radio" name="category" value="job" v-model="input_category" />
-                  <label class="form-check-label">
+                <div class="form-check  rounded  text-danger">
+                  <input class="form-check-input"  type="radio" name="category" value="job" v-model="input_category" />
+                  <label class="form-check-label" style="margin-right: 1rem;">
                     job
                   </label>
                 </div>
               </label>
               <label>
-                <div class="form-check m-3  rounded  text-info">
+                <div class="form-check   rounded  text-info">
                   <input class="form-check-input" type="radio" name="category" value="home" v-model="input_category" />
                   <label class="form-check-label">
                     home
@@ -96,7 +96,7 @@ export default {
           </form>
         </section>
 
-        <section class="mt-2 mx-3 col-6 bg-white mt-5 shadow-sm">
+        <section class="mt-2 mx-3 col-10 col-md-6 bg-white mt-5 shadow-sm">
           <h4 class="text-center mb-3">check your list:</h4>
           <hr>
           <ul>
