@@ -26,6 +26,13 @@ export default {
       input_category.value = null;
     };
 
+    const deleteTodo = (todo) => {
+      const index = todos.value.indexOf(todo);
+      if (index !== -1) {
+        todos.value.splice(index, 1);
+      }
+    };
+
     watch(todos, (newVal) => {
       localStorage.setItem('todos', JSON.stringify(newVal));
     }, { deep: true });
@@ -45,6 +52,7 @@ export default {
       input_content,
       input_category,
       addTodo,
+      deleteTodo,
     };
   },
 };
@@ -52,7 +60,7 @@ export default {
 
 <template>
   <main class="app m-5 ">
-    <section class="container shadow pb-5 bg-white rounded">
+    <section class="container shadow-lg pb-5 bg-white rounded ">
       <div class="row justify-content-center">
         <section class="col-12">
           <h2 class="text-secondary fw-bold">
@@ -96,18 +104,21 @@ export default {
           </form>
         </section>
 
-        <section class="mt-2 mx-3 col-10 col-md-6 bg-white mt-5 shadow-sm">
-          <h4 class="text-center mb-3">check your list:</h4>
-          <hr>
-          <ul>
-            <li v-for="todo in todos" :key="todo.createdAt">
-              <label class="form-check-label" :class="{ 'text-danger': todo.category === 'job', 'text-info': todo.category === 'home', 'fw-light': todo.done }">
-                <input type="checkbox" v-model="todo.done" />
-                {{ todo.content }}
-              </label>
-            </li>
-          </ul>
-        </section>
+        <section class="mt-2 mx-3 col-12 col-md-6 bg-white mt-5 shadow-sm">
+  <h4 class="text-center mb-3 ">check your list:</h4>
+  <hr>
+  <ul>
+    <li v-for="todo in todos" :key="todo.createdAt" class="d-flex justify-content-between">
+      <label class="form-check-label text-sm " :class="{ 'text-danger': todo.category === 'job', 'text-info': todo.category === 'home', 'text-decoration-line-through': todo.done }">
+        <input type="checkbox" v-model="todo.done" />
+      {{ todo.content }}
+      </label>
+      <button @click="deleteTodo(todo)" class="btn btn-sm btn-danger ms-auto mb-3 ">Delete</button>
+    </li>
+  </ul>
+</section>
+
+
       </div>
     </section>
   </main>
